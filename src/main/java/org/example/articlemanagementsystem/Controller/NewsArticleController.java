@@ -43,13 +43,13 @@ public class NewsArticleController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateNewsArticle(@PathVariable int id,@RequestBody @Valid NewsArticle newsArticle, Errors errors) {
+    public ResponseEntity<?> updateNewsArticle(@PathVariable String id,@RequestBody @Valid NewsArticle newsArticle, Errors errors) {
         if (errors.hasErrors()) {
             return ResponseEntity.status(400).body(errors.getFieldError().getDefaultMessage());
         }
         if(newsArticlesService.updateNewsArticle(id,newsArticle))
-            return ResponseEntity.status(400).body(new ApiResponse("Article updated successfully"));
-        return ResponseEntity.status(400).body(new ApiResponse("Article updated successfully"));
+            return ResponseEntity.status(200).body(new ApiResponse("Article updated successfully"));
+        return ResponseEntity.status(400).body(new ApiResponse("Article not found"));
     }
 
     @DeleteMapping("/delete/{id}")

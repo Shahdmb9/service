@@ -35,7 +35,7 @@ public class NewsArticlesService {
     }
 
 
-    public boolean updateNewsArticle( int id, NewsArticle newsArticle) {
+    public boolean updateNewsArticle( String id, NewsArticle newsArticle) {
 
         for (int i = 0; i < newsArticles.size(); i++) {
             if(newsArticles.get(i).getId().equals(id)){
