@@ -18,15 +18,15 @@ public class NewsArticle {
     private String id;
 
     @NotEmpty(message = "title can not be empty")
-    @Size(max = 100)
+    @Size(max = 100,message = "title must be less than 100 character")
     private String title;
 
     @NotEmpty(message = "author can not be empty")
-    @Size(min=5,max = 20)
+    @Size(min=5,max = 20,message = "author name must be between 5 and 20 character")
     private String author;
 
     @NotEmpty(message = "Content can not be empty")
-    @Size(min=200)
+    @Size(min=200,message = "content most be more than 200 character")
     private String Content;
 
     @NotEmpty(message = "Category can not be empty")
